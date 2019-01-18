@@ -1,0 +1,154 @@
+/* Base CSS */
+.alignleft {
+    float: left;
+    margin-right: 15px;
+}
+.alignright {
+    float: right;
+    margin-left: 15px;
+}
+.aligncenter {
+    display: block;
+    margin: 0 auto 15px;
+}
+a:focus { outline: 0 solid }
+img {
+    max-width: 100%;
+    height: auto;
+}
+.fix { overflow: hidden }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 15px;
+    font-weight: 700;
+}
+html { height: 100% }
+
+a {
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+a:hover { text-decoration: none }
+
+.login_image {
+  width: 200px;
+  height: 200px;
+}
+
+.search-box{
+    margin:30px auto;
+}
+.caption{margin-bottom:50px;}
+.loginForm input[type=text], .loginForm input[type=password]{
+	margin-bottom:10px;
+}
+body {
+    background-image: linear-gradient(#cc2b5e, #753a88);
+    height: 100%;
+}
+.welcome {
+    color: #a6a3a3;
+    margin-top: 20px;
+    font-weight: 300;
+    font-size: 35px;
+}
+.login-section {
+    background: #F7F6F6;
+    margin-top: 20px;
+    box-shadow: 10px 2px 15px rgba(0, 0, 0, 0.5)
+}
+.error-message {
+    color: red;
+}
+.error-field {
+    border: 1px solid red;
+}
+#pswd_info {
+	background: #dfdfdf none repeat scroll 0 0;
+	color: #fff;
+    left: 20px;
+	position: absolute;
+    top: 300px;
+    z-index: 10;
+}
+#pswd_info h4{
+    background: #337ab7 none repeat scroll 0 0;
+    display: block;
+    font-size: 14px;
+    letter-spacing: 0;
+    padding: 17px 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+#pswd_info ul {
+    list-style: outside none none;
+}
+#pswd_info ul li {
+   padding: 10px 45px;
+}
+
+
+
+.valid {
+	background: rgba(0, 0, 0, 0) url("https://s19.postimg.org/vq43s2wib/valid.png") no-repeat scroll 2px 6px;
+	color: green;
+	line-height: 21px;
+	padding-left: 22px;
+}
+
+.invalid {
+	background: rgba(0, 0, 0, 0) url("https://s19.postimg.org/olmaj1p8z/invalid.png") no-repeat scroll 2px 6px;
+	color: red;
+	line-height: 21px;
+	padding-left: 22px;
+}
+
+#fbLinkLogout {
+  display: none;
+}
+#pswd_info::before {
+    background: #dfdfdf none repeat scroll 0 0;
+    content: "";
+    height: 25px;
+    left: -13px;
+    margin-top: -12.5px;
+    position: absolute;
+    top: 50%;
+    transform: rotate(45deg);
+    width: 25px;
+}
+#pswd_info {
+    display:none;
+}
+#popup{
+  display: none;
+  position: absolute;
+  z-index: 111;
+  right: 18%;
+  border: 1px solid #333;
+  padding: 30px;
+  background: #fff;
+}
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+.profile-photo {
+    float: left;
+    margin-right: 30px;
+}
