@@ -9,5 +9,5 @@ Accepted usernames and password:
 3. user3--> xyz
 
 Packages used:
-js-sha256 to encrypt
-crypto-random-string to generate salt
+1. js-sha256 to encrypt
+2. crypto-random-string to generate salt
