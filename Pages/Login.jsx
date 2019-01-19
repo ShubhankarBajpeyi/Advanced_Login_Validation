@@ -1,9 +1,48 @@
 import React from 'react';
-import * as common from '../Src/common.js';
+import getUsers from '../Src/api.js';
+import sha256 from 'js-sha256';
 import { Link } from 'react-router-dom';
-import '../Src/validate.js';
+
 class Login extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            username:'',
+            password: ''
+        };
+    
+        this.handleUsernameChange = this.handleUsernameChange.bind(this);
+        this.handlePasswordChange = this.handlePasswordChange.bind(this);
+      }
+    
+      handleUsernameChange(event) {
+        this.setState({username: event.target.value});
+      }
+    
+      handlePasswordChange(event) {
+        this.setState({password: event.target.value});
+      }
+      handleClick(callback) {
+        let currentUser =  getUsers(), //Calling the api layer to get the user info.
+            userData = currentUser[this.state.username];
+        if(userData !== undefined) {
+            let hashed_value = userData.split(',')[0],
+                salted_value = userData.split(',')[1];
+            if(sha256(this.state.password + salted_value.trim()) === hashed_value) {
+                callback(); //Success!
+            } else {
+                $('.error-message').removeClass('hidden');
+                $('.loginForm_password').addClass('error-field');
+                $('.loginForm_username').addClass('error-field');
+                }
+        } else {
+            $('.error-message').removeClass('hidden');
+            $('.loginForm_password').addClass('error-field');
+            $('.loginForm_username').addClass('error-field');
+         }
+      }
     render() {
+
         // common.loginWidget();
         return (
             <div className="row">
@@ -17,10 +56,10 @@ class Login extends React.Component {
                         <div className="loginForm">
                             <div className="input-group col-xs-12">
                                 <div className='hidden error-message text-left'>Please correct the username</div>
-                                <input type="text" id="name" className="form-control loginForm_username" placeholder="Full Name" />
+                                <input type="text" id="name" onChange = {this.handleUsernameChange} className="form-control loginForm_username" placeholder="Full Name" />
                                 <div className='hidden error-message text-left'>Please correct the password</div>
-                                <input type="password" id="paw" className="form-control loginForm_password" placeholder="Password" />
-                                <input type="button" id="submit" className="form-control btn btn-primary validate_button" value="Submit" />
+                                <input type="password" id="paw" onChange = {this.handlePasswordChange} className="form-control loginForm_password" placeholder="Password" />
+                                <input type="button" id="submit" onClick={() => {this.handleClick(this.props.cb);}} className="form-control btn btn-primary validate_button" value="Submit" />
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,5 @@
-function getUSer() {
+function getUSers() {
     return JSON.parse(localStorage.getItem('userDB'));
 }
 
-export default getUSer;
+export default getUSers;

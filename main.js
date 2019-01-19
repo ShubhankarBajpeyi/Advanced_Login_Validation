@@ -8,15 +8,38 @@ import './Src/mockDB.js';
 
 const app= document.getElementById('app');
 //alert(sha256('Message to hash'));
-ReactDOM.render(
-<BrowserRouter>
-<div>
+class Main extends React.Component {
+  
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoggedIn: false
+          };
+    
+        this.setLoginState = this.setLoginState.bind(this);
+      }
+      setLoginState(value) {
+        this.setState({ isLoggedIn: value });
+      };
+    render() {
 
-    <div className='container'>
-    <Route exact path="/" component={Login}> </Route>
-    <Route exact path="/success" component={Success}> </Route>
-    </div>
-
-</div>
-</BrowserRouter>,
-app);
+      return (
+        <div>
+          {!this.state.isLoggedIn ? (
+            <Login
+              cb={() => {
+                this.setLoginState(true);
+              }}
+            />
+          ) : (
+            <Success
+              cb={() => {
+                this.setLoginState(false);
+              }}
+            />
+          )}
+        </div>
+      );
+    }
+  }
+  ReactDOM.render(<Main />, app);
