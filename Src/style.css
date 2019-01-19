@@ -52,6 +52,9 @@ body {
     background-image: linear-gradient(#cc2b5e, #753a88);
     height: 100%;
 }
+.login_margin {
+    margin-top: 20px;
+}
 .welcome {
     color: #a6a3a3;
     margin-top: 20px;

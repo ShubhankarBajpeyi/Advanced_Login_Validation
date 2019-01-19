@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import '../Src/validate.js';
 class Login extends React.Component {
     render() {
-        common.loginWidget();
+        // common.loginWidget();
         return (
             <div className="row">
                 <div className="col-md-4 col-md-offset-4 text-center login-section">
